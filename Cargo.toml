@@ -36,10 +36,11 @@ path = "src/lib.rs"
 [features]
 # Mirrors BOX2D_DOUBLE_PRECISION: double precision world positions for large worlds.
 double-precision = []
+performance = []
 
 [dependencies]
 
-[target.'cfg(all(target_arch = "wasm32", target_os = "unknown"))'.dependencies]
+[target.'cfg(all(target_arch = "wasm32", target_os = "unknown", feature = "performance"))'.dependencies]
 web-time = "1"
 
 [dev-dependencies]

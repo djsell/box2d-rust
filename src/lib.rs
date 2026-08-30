@@ -37,6 +37,8 @@ pub mod shape;
 pub mod solver;
 pub mod solver_set;
 pub mod table;
+#[cfg_attr(feature = "performance", path = "timer.rs")]
+#[cfg_attr(not(feature = "performance"), path = "timer_noop.rs")]
 pub mod timer;
 pub mod types;
 pub mod weld_joint;
