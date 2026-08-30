@@ -2,7 +2,7 @@
 // over time. Ported from benchmarks.c. The C global g_rainData becomes
 // thread-local state here.
 
-use std::cell::RefCell;
+use core::cell::RefCell;
 
 use box2d_rust::body::create_body;
 use box2d_rust::geometry::make_offset_box;

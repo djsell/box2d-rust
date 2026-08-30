@@ -117,7 +117,7 @@ impl SimWorld {
         );
 
         if mode == 3 {
-            raw.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Equal));
+            raw.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(core::cmp::Ordering::Equal));
         }
 
         let mut out = vec![raw.len() as f32];
@@ -195,7 +195,7 @@ impl SimWorld {
         );
 
         if mode == 3 {
-            raw.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Equal));
+            raw.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(core::cmp::Ordering::Equal));
         }
 
         let mut out = vec![raw.len() as f32];

@@ -2,7 +2,7 @@
 // junkyard. Ported from benchmarks.c. The C globals g_spinnerData and
 // g_junkyardData become thread-local state here.
 
-use std::cell::Cell;
+use core::cell::Cell;
 
 use box2d_rust::body::{body_get_local_point, body_set_target_transform, create_body};
 use box2d_rust::collision::{Capsule, Circle};

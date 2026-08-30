@@ -76,7 +76,7 @@ pub fn destroy_sensor(world: &mut crate::world::World, sensor_shape_id: i32) {
     let sensor_index = world.shapes[sensor_shape_id as usize].sensor_index;
     let sensor_generation = world.shapes[sensor_shape_id as usize].generation;
 
-    let overlaps2 = std::mem::take(&mut world.sensors[sensor_index as usize].overlaps2);
+    let overlaps2 = core::mem::take(&mut world.sensors[sensor_index as usize].overlaps2);
     for visitor in &overlaps2 {
         let event = SensorEndTouchEvent {
             sensor_shape_id: ShapeId {
@@ -128,11 +128,11 @@ pub fn overlap_sensors(world: &mut crate::world::World) {
         // Swap overlap arrays
         {
             let sensor = &mut world.sensors[sensor_index];
-            std::mem::swap(&mut sensor.overlaps1, &mut sensor.overlaps2);
+            core::mem::swap(&mut sensor.overlaps1, &mut sensor.overlaps2);
             sensor.overlaps2.clear();
 
             // Append sensor hits, then clear them
-            let hits = std::mem::take(&mut sensor.hits);
+            let hits = core::mem::take(&mut sensor.hits);
             sensor.overlaps2.extend_from_slice(&hits);
         }
 
@@ -308,7 +308,7 @@ pub fn overlap_sensors(world: &mut crate::world::World) {
                 let r2 = world.sensors[sensor_index].overlaps2[index2];
                 if r1.shape_id == r2.shape_id {
                     match r1.generation.cmp(&r2.generation) {
-                        std::cmp::Ordering::Less => {
+                        core::cmp::Ordering::Less => {
                             // end
                             let visitor_id = ShapeId {
                                 index1: r1.shape_id + 1,
@@ -323,7 +323,7 @@ pub fn overlap_sensors(world: &mut crate::world::World) {
                             );
                             index1 += 1;
                         }
-                        std::cmp::Ordering::Greater => {
+                        core::cmp::Ordering::Greater => {
                             // begin
                             let visitor_id = ShapeId {
                                 index1: r2.shape_id + 1,
@@ -336,7 +336,7 @@ pub fn overlap_sensors(world: &mut crate::world::World) {
                             });
                             index2 += 1;
                         }
-                        std::cmp::Ordering::Equal => {
+                        core::cmp::Ordering::Equal => {
                             // persisted
                             index1 += 1;
                             index2 += 1;

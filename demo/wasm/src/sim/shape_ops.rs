@@ -11,13 +11,13 @@ use box2d_rust::shape::{
 };
 use box2d_rust::types::{default_shape_def, Filter, SurfaceMaterial};
 use box2d_rust::world::world_set_custom_filter_callback;
-use std::cell::Cell;
+use core::cell::Cell;
 use wasm_bindgen::prelude::*;
 
 // CustomFilterFcn only receives ShapeIds + u64 context — stash a world pointer
 // for the odd/even Custom Filter sample (set while that scene is active).
 thread_local! {
-    static FILTER_WORLD: Cell<*mut box2d_rust::world::World> = const { Cell::new(std::ptr::null_mut()) };
+    static FILTER_WORLD: Cell<*mut box2d_rust::world::World> = const { Cell::new(core::ptr::null_mut()) };
     /// Benchmark Sensor filter row (`sample_benchmark.cpp` Filter).
     static SENSOR_FILTER_ROW: Cell<i32> = const { Cell::new(0) };
     /// 0 = none, 1 = odd/even, 2 = sensor-row.
@@ -437,7 +437,7 @@ impl SimWorld {
         } else {
             FILTER_MODE.set(0);
             world_set_custom_filter_callback(&mut self.world, None, 0);
-            FILTER_WORLD.with(|cell| cell.set(std::ptr::null_mut()));
+            FILTER_WORLD.with(|cell| cell.set(core::ptr::null_mut()));
         }
     }
 
@@ -452,7 +452,7 @@ impl SimWorld {
         } else {
             FILTER_MODE.set(0);
             world_set_custom_filter_callback(&mut self.world, None, 0);
-            FILTER_WORLD.with(|cell| cell.set(std::ptr::null_mut()));
+            FILTER_WORLD.with(|cell| cell.set(core::ptr::null_mut()));
         }
     }
 

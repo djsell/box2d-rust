@@ -26,7 +26,7 @@ use box2d_rust::world::{
     world_cast_ray_closest, world_get_body_events, world_get_contact_events,
     world_get_joint_events, world_get_sensor_events, world_set_pre_solve_callback, PreSolveFcn,
 };
-use std::cell::Cell;
+use core::cell::Cell;
 use wasm_bindgen::prelude::*;
 
 thread_local! {

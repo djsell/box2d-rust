@@ -248,7 +248,8 @@ pub fn destroy_chain(world: &mut World, chain_id: ChainId) {
         return;
     }
 
-    let shape_indices = std::mem::take(&mut world.chain_shapes[chain_index as usize].shape_indices);
+    let shape_indices =
+        core::mem::take(&mut world.chain_shapes[chain_index as usize].shape_indices);
     for shape_id in shape_indices {
         let wake_bodies = true;
         destroy_shape_internal(world, shape_id, body_id, wake_bodies);

@@ -42,19 +42,19 @@ pub fn compute_layout_hash() -> u32 {
         h ^= x as u32;
         h = h.wrapping_mul(16777619);
     };
-    mix(std::mem::size_of::<crate::body::Body>());
-    mix(std::mem::size_of::<crate::body::BodySim>());
-    mix(std::mem::size_of::<crate::body::BodyState>());
-    mix(std::mem::size_of::<crate::shape::Shape>());
-    mix(std::mem::size_of::<crate::shape::ChainShape>());
-    mix(std::mem::size_of::<crate::contact::Contact>());
-    mix(std::mem::size_of::<crate::contact::ContactSim>());
-    mix(std::mem::size_of::<crate::joint::Joint>());
-    mix(std::mem::size_of::<crate::joint::JointSim>());
-    mix(std::mem::size_of::<crate::island::Island>());
-    mix(std::mem::size_of::<crate::island::IslandSim>());
-    mix(std::mem::size_of::<TreeNode>());
-    mix(std::mem::size_of::<crate::sensor::Sensor>());
+    mix(core::mem::size_of::<crate::body::Body>());
+    mix(core::mem::size_of::<crate::body::BodySim>());
+    mix(core::mem::size_of::<crate::body::BodyState>());
+    mix(core::mem::size_of::<crate::shape::Shape>());
+    mix(core::mem::size_of::<crate::shape::ChainShape>());
+    mix(core::mem::size_of::<crate::contact::Contact>());
+    mix(core::mem::size_of::<crate::contact::ContactSim>());
+    mix(core::mem::size_of::<crate::joint::Joint>());
+    mix(core::mem::size_of::<crate::joint::JointSim>());
+    mix(core::mem::size_of::<crate::island::Island>());
+    mix(core::mem::size_of::<crate::island::IslandSim>());
+    mix(core::mem::size_of::<TreeNode>());
+    mix(core::mem::size_of::<crate::sensor::Sensor>());
     mix(crate::constants::GRAPH_COLOR_COUNT as usize);
     h
 }

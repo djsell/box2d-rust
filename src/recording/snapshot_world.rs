@@ -389,7 +389,7 @@ pub fn world_restore(world: &mut World, image: &[u8]) -> bool {
 
     for c in 0..GRAPH_COLOR_COUNT as usize {
         let is_overflow = c as i32 == GRAPH_COLOR_COUNT - 1;
-        let mut color = std::mem::take(&mut fresh.constraint_graph.colors[c]);
+        let mut color = core::mem::take(&mut fresh.constraint_graph.colors[c]);
         des_graph_color(&mut r, &mut color, is_overflow);
         fresh.constraint_graph.colors[c] = color;
     }

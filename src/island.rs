@@ -182,7 +182,7 @@ pub(crate) fn merge_islands(world: &mut World, island_id_a: i32, island_id_b: i3
     };
 
     // Move bodies from smaller island to larger island
-    let small_bodies = std::mem::take(&mut world.islands[small_island_id as usize].bodies);
+    let small_bodies = core::mem::take(&mut world.islands[small_island_id as usize].bodies);
     for &body_id in &small_bodies {
         let body = &mut world.bodies[body_id as usize];
         debug_assert!(body.island_id == small_island_id);
@@ -192,7 +192,7 @@ pub(crate) fn merge_islands(world: &mut World, island_id_a: i32, island_id_b: i3
     }
 
     // Migrate contacts from smaller island to larger island
-    let small_contacts = std::mem::take(&mut world.islands[small_island_id as usize].contacts);
+    let small_contacts = core::mem::take(&mut world.islands[small_island_id as usize].contacts);
     for link in &small_contacts {
         let contact = &mut world.contacts[link.contact_id as usize];
         contact.island_id = big_island_id;
@@ -201,7 +201,7 @@ pub(crate) fn merge_islands(world: &mut World, island_id_a: i32, island_id_b: i3
     }
 
     // Migrate joints from smaller island to larger island
-    let small_joints = std::mem::take(&mut world.islands[small_island_id as usize].joints);
+    let small_joints = core::mem::take(&mut world.islands[small_island_id as usize].joints);
     for link in &small_joints {
         let joint = &mut world.joints[link.joint_id as usize];
         joint.island_id = big_island_id;
@@ -542,9 +542,9 @@ pub fn split_island(world: &mut World, base_id: i32) {
     // Detach the base island's arrays. (The C caches raw pointers because
     // b2CreateIsland may reallocate the island array; taking the Vecs is the
     // owned equivalent and also protects them from b2DestroyIsland.)
-    let base_body_ids = std::mem::take(&mut world.islands[base_id as usize].bodies);
-    let base_contacts = std::mem::take(&mut world.islands[base_id as usize].contacts);
-    let base_joints = std::mem::take(&mut world.islands[base_id as usize].joints);
+    let base_body_ids = core::mem::take(&mut world.islands[base_id as usize].bodies);
+    let base_contacts = core::mem::take(&mut world.islands[base_id as usize].contacts);
+    let base_joints = core::mem::take(&mut world.islands[base_id as usize].joints);
 
     let base_body_count = base_body_ids.len();
 

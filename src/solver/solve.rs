@@ -623,7 +623,7 @@ pub fn solve(world: &mut World, context: &StepContext) {
     // This may include bullet sensor hits.
     {
         let sensor_hit_ticks = get_ticks();
-        let hits = std::mem::take(&mut world.task_contexts[0].sensor_hits);
+        let hits = core::mem::take(&mut world.task_contexts[0].sensor_hits);
         for hit in hits {
             let sensor_index = world.shapes[hit.sensor_id as usize].sensor_index;
             let generation = world.shapes[hit.visitor_id as usize].generation;

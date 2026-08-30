@@ -9,7 +9,7 @@
 // allowed dead code. It is kept as a faithful companion to the C shared library.
 #![allow(dead_code)]
 
-use std::cell::Cell;
+use core::cell::Cell;
 
 use box2d_rust::collision::Polygon;
 use box2d_rust::geometry::{make_polygon, make_square};

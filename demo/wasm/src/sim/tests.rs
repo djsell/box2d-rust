@@ -200,7 +200,7 @@ fn phase3_exact_upgrade_apis() {
     let mut sim = SimWorld::new(-10.0);
     sim.enable_weeble_mix_callbacks(true);
     let ground = sim.add_segment(-20.0, 0.0, 20.0, 0.0);
-    let weeble = sim.add_body(0.0, 3.0, 0.25 * std::f32::consts::PI, 2);
+    let weeble = sim.add_body(0.0, 3.0, 0.25 * core::f32::consts::PI, 2);
     sim.attach_capsule(weeble, 0.0, -1.0, 0.0, 1.0, 1.0, 1.0, 0.6, 0.0);
     let mass = sim.get_mass(weeble);
     let mut inertia = sim.get_rotational_inertia(weeble);
@@ -285,7 +285,7 @@ fn pinball_full_scene_a_key_motors_flip() {
     let right = sim.add_body_ex(2.0, 0.0, 0.0, 2, 1.0, false);
     sim.attach_box(left, 1.75, 0.2, 0.0, 0.0, 0.0, 1.0, 0.6, 0.0);
     sim.attach_box(right, 1.75, 0.2, 0.0, 0.0, 0.0, 1.0, 0.6, 0.0);
-    let deg = std::f32::consts::PI / 180.0;
+    let deg = core::f32::consts::PI / 180.0;
     let left_j = sim.add_revolute_joint_local(
         ground,
         left,

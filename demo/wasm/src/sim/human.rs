@@ -25,7 +25,7 @@ use box2d_rust::shape::{
     shape_set_capsule, shape_set_polygon,
 };
 use box2d_rust::types::default_revolute_joint_def;
-use std::sync::atomic::{AtomicU32, Ordering};
+use core::sync::atomic::{AtomicU32, Ordering};
 use wasm_bindgen::prelude::*;
 
 /// C `BoneId` (`human.h:8-22`)

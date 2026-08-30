@@ -5,7 +5,7 @@
 //! `b2ComputeHull` / `b2ValidateHull`. Invented Geometry Queries / Labs
 //! manifolds helpers are retired (C Manifold scenes live under Collision).
 
-use std::cell::RefCell;
+use core::cell::RefCell;
 
 use wasm_bindgen::prelude::*;
 

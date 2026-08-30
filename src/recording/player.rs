@@ -69,7 +69,7 @@ struct Keyframe {
 
 impl Keyframe {
     fn bytes(&self) -> usize {
-        self.image.len() + self.body_ids.len() * std::mem::size_of::<BodyId>()
+        self.image.len() + self.body_ids.len() * core::mem::size_of::<BodyId>()
     }
 }
 
@@ -152,7 +152,7 @@ impl RecPlayer {
         if header.magic != super::REC_MAGIC
             || header.version_major != super::REC_VERSION_MAJOR
             || header.version_minor != super::REC_VERSION_MINOR
-            || header.pointer_width != std::mem::size_of::<usize>() as u8
+            || header.pointer_width != core::mem::size_of::<usize>() as u8
             || header.big_endian != 0
         {
             return None;
@@ -430,7 +430,7 @@ impl RecPlayer {
     /// (b2RecCaptureKeyframe)
     fn capture_keyframe(&mut self) {
         let image = super::world_snapshot(&self.world);
-        let body_bytes = self.body_ids.len() * std::mem::size_of::<BodyId>();
+        let body_bytes = self.body_ids.len() * core::mem::size_of::<BodyId>();
         let new_bytes = image.len() + body_bytes;
 
         // Make room under the budget: doubling the spacing drops the

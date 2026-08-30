@@ -6,7 +6,7 @@ use box2d_rust::debug_draw::{DebugDraw, HexColor};
 use box2d_rust::math_functions as m;
 use box2d_rust::math_functions::{transform_world_point, Aabb, Pos, Vec2, WorldTransform};
 use box2d_rust::world::{world_draw, World};
-use std::cell::Cell;
+use core::cell::Cell;
 use wasm_bindgen::prelude::*;
 
 pub const MENU_SHAPES: u32 = 1 << 0;

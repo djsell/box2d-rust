@@ -182,7 +182,7 @@ pub(crate) fn start_recording_into_buffer(world: &mut World, mut recording: Reco
         version_major: super::REC_VERSION_MAJOR,
         version_minor: super::REC_VERSION_MINOR,
         length_scale: crate::core::get_length_units_per_meter(),
-        pointer_width: std::mem::size_of::<usize>() as u8,
+        pointer_width: core::mem::size_of::<usize>() as u8,
         big_endian: 0,
         validation_enabled: if cfg!(debug_assertions) { 1 } else { 0 },
         snapshot_size: blob.len() as u64,
