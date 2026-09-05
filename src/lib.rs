@@ -75,7 +75,7 @@ mod manifold_tests;
 mod math_functions_tests;
 #[cfg(test)]
 mod player_tests;
-#[cfg(test)]
+#[cfg(all(test, feature = "std"))]
 mod recording_tests;
 #[cfg(test)]
 mod shape_api_tests;

@@ -292,12 +292,14 @@ pub struct ReplayResult {
 /// Persist a recording buffer. The library never opens files while
 /// recording; this lets a host save a finished session.
 /// (b2SaveRecordingToFile)
+#[cfg(feature = "std")]
 pub fn save_recording_to_file(recording: &Recording, path: &std::path::Path) -> bool {
     std::fs::write(path, &recording.buffer).is_ok()
 }
 
 /// Load a recording buffer saved by [`save_recording_to_file`].
 /// (b2LoadRecordingFromFile)
+#[cfg(feature = "std")]
 pub fn load_recording_from_file(path: &std::path::Path) -> Option<Recording> {
     let buffer = std::fs::read(path).ok()?;
     let mut recording = Recording::new(0);

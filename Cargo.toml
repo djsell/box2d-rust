@@ -37,6 +37,7 @@ path = "src/lib.rs"
 # Mirrors BOX2D_DOUBLE_PRECISION: double precision world positions for large worlds.
 double-precision = []
 performance = []
+std = []
 
 [dependencies]
 
