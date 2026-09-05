@@ -4,6 +4,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::hull::{compute_hull, validate_hull, Hull};
 use crate::math_functions::{cross, sub, Vec2};
 

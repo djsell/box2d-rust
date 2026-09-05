@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::{
     compute_shape_mass, get_shape_index, make_shape_distance_proxy, ray_cast_shape,
     update_shape_aabbs,

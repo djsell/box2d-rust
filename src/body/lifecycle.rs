@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::{body_flags, create_island_for_body, make_body_id, Body, BodySim, BodyState};
 use crate::constants::huge;
 use crate::core::NULL_INDEX;

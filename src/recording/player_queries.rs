@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::collision::{Capsule, PlaneResult, WorldCastOutput};
 use crate::debug_draw::{DebugDraw, HexColor};
 use crate::distance::ShapeProxy;

@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::body::{body_sim_location, create_body, get_body_full_id};
 use crate::collision::{Capsule, Circle};
 use crate::distance::make_proxy;

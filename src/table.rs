@@ -11,6 +11,11 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::core::round_up_power_of2;
 
 /// Build a symmetric key from a pair of shape indices. (B2_SHAPE_PAIR_KEY)

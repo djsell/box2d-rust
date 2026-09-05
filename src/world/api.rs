@@ -14,6 +14,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::{default_friction_callback, default_restitution_callback, World};
 use super::{CustomFilterFcn, PreSolveFcn, Profile};
 use crate::aabb::offset_aabb;

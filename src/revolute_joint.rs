@@ -10,6 +10,9 @@
 //
 // bring-up: prepare/warm-start/solve are called by the solver slice.
 
+#[cfg(feature = "alloc")]
+use alloc::format;
+
 use crate::body::{body_flags, get_body_transform, BodyState, IDENTITY_BODY_STATE};
 use crate::core::NULL_INDEX;
 use crate::id::JointId;

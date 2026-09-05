@@ -22,6 +22,9 @@
 // The range loops index two parallel arrays (constraints and graph colors).
 #![allow(clippy::needless_range_loop)]
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::integrate::{finalize_bodies, integrate_positions, integrate_velocities};
 use super::StepContext;
 use crate::constraint_graph::OVERFLOW_INDEX;

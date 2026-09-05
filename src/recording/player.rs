@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::ops::{
     dispatch_world_op, OP_DESTROY_WORLD, OP_RECORDING_BOUNDS, OP_STATE_HASH, OP_STEP,
 };

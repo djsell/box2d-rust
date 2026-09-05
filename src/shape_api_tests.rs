@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+
 use crate::body::{body_get_linear_velocity, body_get_position, create_body};
 use crate::collision::{Capsule, ChainSegment, Circle, Segment, ShapeType};
 use crate::core::NULL_INDEX;

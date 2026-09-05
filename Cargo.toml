@@ -34,7 +34,9 @@ name = "box2d_rust"
 path = "src/lib.rs"
 
 [features]
+default = ["alloc"]
 # Mirrors BOX2D_DOUBLE_PRECISION: double precision world positions for large worlds.
+alloc = []
 double-precision = []
 performance = []
 std = []

@@ -7,6 +7,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::{create_shape_internal, destroy_shape_internal, ChainShape};
 use crate::body::get_body_full_id;
 use crate::collision::{ChainSegment, Segment, ShapeGeometry};

@@ -4,6 +4,11 @@
 //!
 //! Ported module by module from the pinned C reference in `box2d-cpp-reference/`.
 
+#![no_std]
+
+#[cfg(feature = "alloc")]
+extern crate alloc;
+
 pub mod aabb;
 pub mod bitset;
 pub mod body;

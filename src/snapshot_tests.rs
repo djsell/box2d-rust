@@ -9,6 +9,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+
 use crate::body::{body_is_valid, create_body};
 use crate::geometry::make_box;
 use crate::id::{BodyId, ChainId, JointId, ShapeId};

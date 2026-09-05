@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2025 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::collision::RayCastInput;
 use crate::dynamic_tree::DynamicTree;
 use crate::math_functions::{add, sub, Aabb, Vec2};

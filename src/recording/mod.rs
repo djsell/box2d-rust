@@ -14,6 +14,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::math_functions::{Aabb, Pos};
 use crate::world::World;
 

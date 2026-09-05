@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::string::String;
+
 use crate::core::{get_length_units_per_meter, SECRET_COOKIE};
 use crate::math_functions::{Pos, Rot, Vec2, POS_ZERO, ROT_IDENTITY, VEC2_ZERO};
 

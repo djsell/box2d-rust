@@ -4,6 +4,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::get_body_full_id;
 use crate::core::NULL_INDEX;
 use crate::id::{BodyId, JointId, ShapeId};

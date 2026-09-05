@@ -3,6 +3,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::body::{body_flags, remove_body_sim, BodySim, BodyState, IDENTITY_BODY_STATE};
 use crate::constants::GRAPH_COLOR_COUNT;
 use crate::constraint_graph::{

@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::continuous::solve_continuous;
 use super::StepContext;
 use crate::body::body_flags;

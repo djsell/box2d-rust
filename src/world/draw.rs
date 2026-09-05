@@ -3,6 +3,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::{format, vec::Vec};
+
 use crate::body::body_flags;
 use crate::collision::ShapeGeometry;
 use crate::constants::linear_slop;

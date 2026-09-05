@@ -10,6 +10,9 @@
 // keeping it explicit makes the format auditable against the serializers.
 #![allow(clippy::field_reassign_with_default)]
 
+#[cfg(feature = "alloc")]
+use alloc::{string::String, vec::Vec};
+
 use super::snapshot::SnapReader;
 use super::write::*;
 use crate::body::{Body, BodySim, BodyState};

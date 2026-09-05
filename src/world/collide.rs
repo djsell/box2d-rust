@@ -9,6 +9,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::World;
 use crate::body::BodySim;
 use crate::constants::{speculative_distance, GRAPH_COLOR_COUNT};

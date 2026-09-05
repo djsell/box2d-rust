@@ -4,6 +4,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+
 use super::{DynamicTree, ENLARGED_NODE, TREE_STACK_SIZE};
 use crate::core::NULL_INDEX;
 use crate::math_functions::{aabb_center, aabb_union, max, min, sub, Vec2};

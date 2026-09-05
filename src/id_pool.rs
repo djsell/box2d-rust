@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 /// (b2IdPool)
 #[derive(Debug, Clone, Default)]
 pub struct IdPool {

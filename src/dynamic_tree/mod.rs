@@ -25,6 +25,11 @@ mod query;
 mod rebuild;
 mod validate;
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::core::NULL_INDEX;
 use crate::math_functions::{Aabb, Vec2, VEC2_ZERO};
 

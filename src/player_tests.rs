@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec;
+
 use crate::body::{body_is_valid, create_body};
 use crate::collision::{Circle, Segment};
 use crate::debug_draw::{DebugDraw, HexColor};

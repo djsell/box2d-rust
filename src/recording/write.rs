@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::collision::{
     Capsule, ChainSegment, Circle, MassData, Polygon, Segment, WorldCastOutput,
 };

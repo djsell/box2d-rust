@@ -13,6 +13,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::write::{rec_w_i32, rec_w_u16, rec_w_u32, rec_w_u64};
 use crate::bitset::BitSet;
 use crate::dynamic_tree::{DynamicTree, TreeNode};

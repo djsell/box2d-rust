@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::collision::{Circle, ShapeGeometry, ShapeType};
 use crate::core::NULL_INDEX;
 use crate::math_functions::{Aabb, Vec2, VEC2_ZERO};

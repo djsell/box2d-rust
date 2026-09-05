@@ -8,6 +8,9 @@
 // See snapshot_structs.rs: assignment order IS the wire order.
 #![allow(clippy::field_reassign_with_default)]
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::snapshot::SnapReader;
 use super::snapshot_structs::{r_mat22, r_softness, r_vec2, r_xf, w_mat22, w_softness};
 use super::write::*;

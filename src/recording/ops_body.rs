@@ -7,6 +7,9 @@
 // SPDX-FileCopyrightText: 2026 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use super::ops::read_position;
 use super::snapshot::SnapReader;
 use super::snapshot_structs::{r_rot, r_string, r_vec2};

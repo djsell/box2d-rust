@@ -11,6 +11,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::vec::Vec;
+
 use crate::body::{body_get_transform, create_body};
 use crate::core::{hash, HASH_INIT};
 use crate::geometry::make_square;
@@ -188,6 +191,7 @@ fn falling_hinges() {
     }
 
     if data.sleep_step != EXPECTED_SLEEP_STEP || data.hash != EXPECTED_HASH {
+        #[cfg(feature = "std")]
         println!("  sleepStep={} hash=0x{:08X}", data.sleep_step, data.hash);
     }
 
