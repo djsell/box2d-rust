@@ -43,7 +43,7 @@ pub fn nlerp(q1: Rot, q2: Rot, t: f32) -> Rot {
         s: omt * q1.s + t * q2.s,
     };
 
-    let mag = (q.s * q.s + q.c * q.c).sqrt();
+    let mag = crate::math_functions::sqrtf(q.s * q.s + q.c * q.c);
     let inv_mag = if mag > 0.0 { 1.0 / mag } else { 0.0 };
     Rot {
         c: q.c * inv_mag,
@@ -133,7 +133,7 @@ fn remainder_f32(x: f32, y: f32) -> f32 {
 
     // Round-half-to-even quotient, computed in f64 to avoid double-rounding error
     // for the magnitudes used here (angle unwinding).
-    let q = (x as f64 / y as f64).round_ties_even();
+    let q = crate::math_functions::round_ties_even(x as f64 / y as f64);
     (x as f64 - q * y as f64) as f32
 }
 

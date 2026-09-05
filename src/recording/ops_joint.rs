@@ -476,6 +476,9 @@ fn dispatch_per_type_joint_op(opcode: u8, r: &mut SnapReader, world: &mut World)
 
 #[cfg(test)]
 mod tests {
+    #[cfg(feature = "alloc")]
+    use alloc::vec::Vec;
+
     use crate::body::create_body;
     use crate::distance_joint::*;
     use crate::geometry::{make_box, make_square};

@@ -147,19 +147,19 @@ pub fn clamp(v: Vec2, a: Vec2, b: Vec2) -> Vec2 {
 
 /// Get the length of this vector (the norm)
 pub fn length(v: Vec2) -> f32 {
-    (v.x * v.x + v.y * v.y).sqrt()
+    crate::math_functions::sqrtf(v.x * v.x + v.y * v.y)
 }
 
 /// Get the distance between two points
 pub fn distance(a: Vec2, b: Vec2) -> f32 {
     let dx = b.x - a.x;
     let dy = b.y - a.y;
-    (dx * dx + dy * dy).sqrt()
+    crate::math_functions::sqrtf(dx * dx + dy * dy)
 }
 
 /// Convert a vector into a unit vector if possible, otherwise returns the zero vector.
 pub fn normalize(v: Vec2) -> Vec2 {
-    let length = (v.x * v.x + v.y * v.y).sqrt();
+    let length = crate::math_functions::sqrtf(v.x * v.x + v.y * v.y);
     if length < f32::EPSILON {
         return Vec2 { x: 0.0, y: 0.0 };
     }
@@ -180,7 +180,7 @@ pub fn is_normalized(a: Vec2) -> bool {
 /// Convert a vector into a unit vector if possible, otherwise returns the zero vector. Also
 /// outputs the length.
 pub fn get_length_and_normalize(length: &mut f32, v: Vec2) -> Vec2 {
-    *length = (v.x * v.x + v.y * v.y).sqrt();
+    *length = crate::math_functions::sqrtf(v.x * v.x + v.y * v.y);
     if *length < f32::EPSILON {
         return Vec2 { x: 0.0, y: 0.0 };
     }
@@ -194,7 +194,7 @@ pub fn get_length_and_normalize(length: &mut f32, v: Vec2) -> Vec2 {
 
 /// Normalize rotation
 pub fn normalize_rot(q: Rot) -> Rot {
-    let mag = (q.s * q.s + q.c * q.c).sqrt();
+    let mag = crate::math_functions::sqrtf(q.s * q.s + q.c * q.c);
     let inv_mag = if mag > 0.0 { 1.0 / mag } else { 0.0 };
     Rot {
         c: q.c * inv_mag,
@@ -214,7 +214,7 @@ pub fn integrate_rotation(q1: Rot, delta_angle: f32) -> Rot {
         c: q1.c - delta_angle * q1.s,
         s: q1.s + delta_angle * q1.c,
     };
-    let mag = (q2.s * q2.s + q2.c * q2.c).sqrt();
+    let mag = crate::math_functions::sqrtf(q2.s * q2.s + q2.c * q2.c);
     let inv_mag = if mag > 0.0 { 1.0 / mag } else { 0.0 };
     Rot {
         c: q2.c * inv_mag,

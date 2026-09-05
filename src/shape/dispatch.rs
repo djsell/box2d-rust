@@ -106,7 +106,9 @@ pub fn compute_shape_extent(shape: &Shape, local_center: Vec2) -> ShapeExtent {
             extent.min_extent = radius;
             let c1 = sub(capsule.center1, local_center);
             let c2 = sub(capsule.center2, local_center);
-            extent.max_extent = max_float(length_squared(c1), length_squared(c2)).sqrt() + radius;
+            extent.max_extent =
+                crate::math_functions::sqrtf(max_float(length_squared(c1), length_squared(c2)))
+                    + radius;
         }
 
         ShapeGeometry::Circle(circle) => {
@@ -129,21 +131,23 @@ pub fn compute_shape_extent(shape: &Shape, local_center: Vec2) -> ShapeExtent {
             }
 
             extent.min_extent = min_extent + poly.radius;
-            extent.max_extent = max_extent_sqr.sqrt() + poly.radius;
+            extent.max_extent = crate::math_functions::sqrtf(max_extent_sqr) + poly.radius;
         }
 
         ShapeGeometry::Segment(segment) => {
             extent.min_extent = 0.0;
             let c1 = sub(segment.point1, local_center);
             let c2 = sub(segment.point2, local_center);
-            extent.max_extent = max_float(length_squared(c1), length_squared(c2)).sqrt();
+            extent.max_extent =
+                crate::math_functions::sqrtf(max_float(length_squared(c1), length_squared(c2)));
         }
 
         ShapeGeometry::ChainSegment(chain_segment) => {
             extent.min_extent = 0.0;
             let c1 = sub(chain_segment.segment.point1, local_center);
             let c2 = sub(chain_segment.segment.point2, local_center);
-            extent.max_extent = max_float(length_squared(c1), length_squared(c2)).sqrt();
+            extent.max_extent =
+                crate::math_functions::sqrtf(max_float(length_squared(c1), length_squared(c2)));
         }
     }
 

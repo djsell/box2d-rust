@@ -80,7 +80,7 @@ pub fn collide_capsules(capsule_a: &Capsule, capsule_b: &Capsule, xf: Transform)
         return manifold;
     }
 
-    let distance = distance_sq.sqrt();
+    let distance = crate::math_functions::sqrtf(distance_sq);
 
     let (mut length1, mut length2) = (0.0, 0.0);
     let u1 = get_length_and_normalize(&mut length1, d1);

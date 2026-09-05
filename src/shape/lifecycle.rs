@@ -25,7 +25,7 @@ pub(crate) fn compute_shape_margin(shape: &Shape) -> f32 {
                     crate::math_functions::distance_squared(poly.vertices[i], poly.centroid);
                 max_extent_sqr = max_float(max_extent_sqr, distance_sqr);
             }
-            max_extent_sqr.sqrt()
+            crate::math_functions::sqrtf(max_extent_sqr)
         }
         ShapeGeometry::Segment(segment) => 0.5 * distance(segment.point1, segment.point2),
         ShapeGeometry::ChainSegment(chain_segment) => {

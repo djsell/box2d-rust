@@ -249,9 +249,10 @@ pub fn joint_get_linear_separation(world: &World, joint_id: JointId) -> f32 {
                 }
             }
 
-            (perpendicular_separation * perpendicular_separation
-                + limit_separation * limit_separation)
-                .sqrt()
+            crate::math_functions::sqrtf(
+                perpendicular_separation * perpendicular_separation
+                    + limit_separation * limit_separation,
+            )
         }
 
         JointPayload::Revolute(_) => length(dp),
@@ -281,9 +282,10 @@ pub fn joint_get_linear_separation(world: &World, joint_id: JointId) -> f32 {
                 }
             }
 
-            (perpendicular_separation * perpendicular_separation
-                + limit_separation * limit_separation)
-                .sqrt()
+            crate::math_functions::sqrtf(
+                perpendicular_separation * perpendicular_separation
+                    + limit_separation * limit_separation,
+            )
         }
     }
 }

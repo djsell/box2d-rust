@@ -3,6 +3,9 @@
 // SPDX-FileCopyrightText: 2023 Erin Catto
 // SPDX-License-Identifier: MIT
 
+#[cfg(feature = "alloc")]
+use alloc::format;
+
 use crate::body::get_body_transform_quick;
 use crate::core::NULL_INDEX;
 use crate::debug_draw::{DebugDraw, HexColor};

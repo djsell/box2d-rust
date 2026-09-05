@@ -27,3 +27,33 @@ pub use transform::*;
 pub use types::*;
 pub use validate::*;
 pub use vector::*;
+
+#[cfg(feature = "std")]
+pub fn sqrtf(x: f32) -> f32 {
+    x.sqrt()
+}
+
+#[cfg(all(not(feature = "std"), feature = "libm"))]
+pub fn sqrtf(x: f32) -> f32 {
+    libm::sqrtf(x)
+}
+
+#[cfg(feature = "std")]
+pub fn sqrt(x: f64) -> f64 {
+    x.sqrt()
+}
+
+#[cfg(all(not(feature = "std"), feature = "libm"))]
+pub fn sqrt(x: f64) -> f64 {
+    libm::sqrt(x)
+}
+
+#[cfg(feature = "std")]
+pub fn round_ties_even(x: f64) -> f64 {
+    x.round_ties_even()
+}
+
+#[cfg(all(not(feature = "std"), feature = "libm"))]
+pub fn round_ties_even(x: f64) -> f64 {
+    libm::roundeven(x)
+}

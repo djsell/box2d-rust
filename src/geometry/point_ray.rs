@@ -106,7 +106,7 @@ pub fn ray_cast_circle(shape: &Circle, input: &RayCastInput) -> CastOutput {
     }
 
     // Pythagoras
-    let h = (rr - cc).sqrt();
+    let h = crate::math_functions::sqrtf(rr - cc);
 
     let fraction = t - h;
 

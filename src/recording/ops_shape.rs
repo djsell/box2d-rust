@@ -452,6 +452,11 @@ pub(crate) fn dispatch_shape_op(opcode: u8, r: &mut SnapReader, world: &mut Worl
 
 #[cfg(test)]
 mod tests {
+    #[cfg(feature = "alloc")]
+    use alloc::vec;
+    #[cfg(feature = "alloc")]
+    use alloc::vec::Vec;
+
     use crate::body::create_body;
     use crate::collision::{Capsule, Circle};
     use crate::geometry::{make_box, make_square};

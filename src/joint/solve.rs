@@ -115,7 +115,9 @@ pub fn get_joint_reaction(sim: &JointSim, inv_time_step: f32) -> (f32, f32) {
         JointPayload::Prismatic(joint) => {
             let perp_impulse = joint.impulse.x;
             let axial_impulse = joint.motor_impulse + joint.lower_impulse - joint.upper_impulse;
-            linear_impulse = (perp_impulse * perp_impulse + axial_impulse * axial_impulse).sqrt();
+            linear_impulse = crate::math_functions::sqrtf(
+                perp_impulse * perp_impulse + axial_impulse * axial_impulse,
+            );
             angular_impulse = abs_float(joint.impulse.y);
         }
 
@@ -133,7 +135,9 @@ pub fn get_joint_reaction(sim: &JointSim, inv_time_step: f32) -> (f32, f32) {
         JointPayload::Wheel(joint) => {
             let perp_impulse = joint.perp_impulse;
             let axial_impulse = joint.spring_impulse + joint.lower_impulse - joint.upper_impulse;
-            linear_impulse = (perp_impulse * perp_impulse + axial_impulse * axial_impulse).sqrt();
+            linear_impulse = crate::math_functions::sqrtf(
+                perp_impulse * perp_impulse + axial_impulse * axial_impulse,
+            );
             angular_impulse = abs_float(joint.motor_impulse);
         }
 

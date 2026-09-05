@@ -256,7 +256,7 @@ pub fn default_friction_callback(
     friction_b: f32,
     _material_b: u64,
 ) -> f32 {
-    (friction_a * friction_b).sqrt()
+    crate::math_functions::sqrtf(friction_a * friction_b)
 }
 
 /// Default restitution mixing: `max(restitutionA, restitutionB)`.

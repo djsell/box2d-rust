@@ -23,7 +23,10 @@ use crate::world::World;
 pub(crate) fn limit_velocity(state: &mut BodyState, max_linear_speed: f32) {
     let v2 = length_squared(state.linear_velocity);
     if v2 > max_linear_speed * max_linear_speed {
-        state.linear_velocity = mul_sv(max_linear_speed / v2.sqrt(), state.linear_velocity);
+        state.linear_velocity = mul_sv(
+            max_linear_speed / crate::math_functions::sqrtf(v2),
+            state.linear_velocity,
+        );
     }
 }
 

@@ -309,7 +309,7 @@ pub fn collide_polygons(polygon_a: &Polygon, polygon_b: &Polygon, xf: Transform)
 
         let result = segment_distance(v11, v12, v21, v22);
         debug_assert!(result.distance_squared > 0.0);
-        let distance = result.distance_squared.sqrt();
+        let distance = crate::math_functions::sqrtf(result.distance_squared);
         let separation = distance - radius;
 
         if distance - radius > speculative {

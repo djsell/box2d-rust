@@ -160,7 +160,7 @@ pub fn compute_cos_sin(radians: f32) -> CosSin {
         16.0 * x * (PI - x) / (5.0 * pi2 - 4.0 * x * (PI - x))
     };
 
-    let mag = (s * s + c * c).sqrt();
+    let mag = crate::math_functions::sqrtf(s * s + c * c);
     let inv_mag = if mag > 0.0 { 1.0 / mag } else { 0.0 };
     CosSin {
         cosine: c * inv_mag,

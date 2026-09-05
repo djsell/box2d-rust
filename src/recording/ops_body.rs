@@ -471,6 +471,9 @@ pub(crate) fn dispatch_body_op(
 
 #[cfg(test)]
 mod tests {
+    #[cfg(feature = "alloc")]
+    use alloc::{string::ToString, vec::Vec};
+
     use crate::body::*;
     use crate::geometry::{make_box, make_square};
     use crate::math_functions::{make_rot, to_pos, Vec2};

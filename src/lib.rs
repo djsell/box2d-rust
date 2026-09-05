@@ -4,7 +4,7 @@
 //!
 //! Ported module by module from the pinned C reference in `box2d-cpp-reference/`.
 
-#![no_std]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(feature = "alloc")]
 extern crate alloc;
